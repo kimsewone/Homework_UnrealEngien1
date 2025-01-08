@@ -42,15 +42,15 @@ void AMyActor::Move()
 
     if (10  <= VectorArrayIdx)
     {
+        int32 RandEvent = CreateEvent();
+        UE_LOG(LogTemp, Warning, TEXT("EVent %d"), RandEvent);
+
         UE_LOG(LogTemp, Warning, TEXT("MOVE END!!"));
         GetWorldTimerManager().ClearTimer(TimeHandle);
     }
 }
 FVector2D AMyActor::Step()
 {
-    int32 RandEvent = CreateEvent();
-    UE_LOG(LogTemp, Warning, TEXT("EVent %d"), RandEvent);
-    
     FVector2D NextPos(FMath::RandRange(0, 1), FMath::RandRange(0, 1));
     VectorArrayIdx++;
 
